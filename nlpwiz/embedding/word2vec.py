@@ -21,8 +21,24 @@ class Word2Vec:
 
     def word_vector(self, word):
         if word in self.model:
-            return self.model[word]
-        return self.model["unk"]
+            vec = self.model[word]
+        else:
+            vec = self.model["unk"]
+        return vec.tolist()
+
+    def similar_words(self, word, count=10):
+        return self.model.similar_by_word(word, topn=count)
+
+    def most_similar(self, positive_words, negative_words=[], count=10):
+        try:
+            sims = self.model.most_similar(positive=positive_words, negative=negative_words, topn=count)
+        except KeyError as ex:
+            logger.warning(str(ex))
+            return []
+        return sims[:count]
+
+    def similarity_score(self, words1, words2):
+        return self.model.n_similarity(words1, words2)
 
     def sentence_vector(self, sentence):
         tokens = tokenize(sentence)
