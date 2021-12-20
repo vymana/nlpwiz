@@ -15,6 +15,6 @@ textstat==0.7.1
 
 
 ## tools ##
-nameko==2.13.0
+nameko==2.14.0
 pytest==3.5
 pytest-cov==2.5
