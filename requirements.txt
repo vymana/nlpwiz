@@ -1,6 +1,6 @@
 
 ## NLP ##
-nltk==3.6.2
+nltk==3.6.5
 spacy==2.2.2
 gensim
 textblob==0.15.3
