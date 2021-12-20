@@ -1,12 +1,12 @@
 
 ## NLP ##
-nltk
-spacy
+nltk==3.6.2
+spacy==2.2.2
 gensim
-textblob
-wordfreq
-sumy
-textstat
+textblob==0.15.3
+wordfreq==2.5.0
+sumy==0.8.1
+textstat==0.7.1
 
 ## machine learning ##
 #sklearn==0.21.3 #Random forest is broken on version 0.22
