@@ -11,7 +11,7 @@ STOP_WORDS = set(stopwords.words('english'))
 SEPERATORS = [" ", "\t", "\n"]
 STOP_WORDS.update(PUNCTS)
 
-spacy_model = spacy.load('en')
+model = spacy.load('en_core_web_sm')
 stemmer=SnowballStemmer("english")
 
 def parse(text):
@@ -20,7 +20,7 @@ def parse(text):
     """
     text = re.sub('[ ]+', ' ', text).strip()  # Convert multiple whitespaces into one
 
-    doc = spacy_model(text)
+    doc = model(text)
     token_tags = []
     for tok in doc:
         tags = {"text": tok.text, "lemma": tok.lemma_, "pos": tok.pos_,
@@ -32,7 +32,7 @@ def parse(text):
 
 
 def lemmatize(text):
-    doc = spacy_model(text)
+    doc = model(text)
     return [tok.lemma_ for tok in doc]
 
 
